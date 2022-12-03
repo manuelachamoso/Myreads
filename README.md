@@ -29,8 +29,6 @@ http://localhost:3000/
 - [x] When you start typing, a list of books with the letters you're looking for will start to appear.
 - [x] If there is no book available with the name you are looking for, you will see a empty page.
 
-**Live page**
-[My Reads](https://www.myreads-udacity.netlify.app)
 
 **Screenshots**
 ![image 1](/src/screenshots/screenshot.png)
