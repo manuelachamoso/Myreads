@@ -39,7 +39,7 @@ const SearchPage = ({changeShelf}) => {
           <div className="search-books-results">
             <ol className="books-grid">
               <li>{print ? newBook.map(book => (
-                  <Book key={book.id}  book={book} changeShelf={changeShelf}/>)): (
+                  <Book key={book.id}  book={book} changeShelf={changeShelf} isSearch={true}/>)): (
                     ''
                   )}
               </li>

@@ -304,3 +304,16 @@ button {
   border-bottom-right-radius: 16px;
   border-top-right-radius: 16px;
 }
+
+
+.check-icon {
+  width: 28px;
+  height: 20px;
+  background-color: transparent;
+  position: absolute;
+  z-index: 1;
+}
+
+.check-icon img {
+  width: 30px;
+}

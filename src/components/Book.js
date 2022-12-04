@@ -1,16 +1,33 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Modal from './Modal'
+import {get} from '../BooksAPI'
 
-const Book = ({book, changeShelf}) => {
+const Book = ({book, changeShelf, currentShelf, isSearch}) => {
+    currentShelf = currentShelf === undefined ? 'none' : currentShelf
+    const [shelf, setShelf] = useState(currentShelf); 
     const [toggle, setToggle] = useState("")
 
     const updateShelf = (e) => {
+        setShelf(e.target.value)
         changeShelf(book, e.target.value)
     }
 
+    useEffect(()=> {
+        get(book.id).then(book => setShelf(book.shelf))
+    })
+
+    const icon = shelf !== 'none' && isSearch;
+
     return (
         <div className="book">
+              {icon && <div className="check-icon">
+                          <img
+                            src={require("../icons/check.png")}
+                            alt="check-error"
+                          />
+                        </div>}
              <div className="book-top">
+                
                 <div
                 className="book-cover"
                 style={{
@@ -18,8 +35,8 @@ const Book = ({book, changeShelf}) => {
                 height: 193,
                 backgroundImage:`url(${book.imageLinks ? book.imageLinks.smallThumbnail : ""})`,
                 }}></div>
-                <div className="book-shelf-changer" value={book.shelf}>
-                    <select onChange={updateShelf}>
+                <div className="book-shelf-changer">
+                    <select onChange={updateShelf}  value={shelf}>
                     <option value="" hidden>Move to</option>
                     <option value="currentlyReading">
                     Currently Reading</option>

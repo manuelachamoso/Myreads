@@ -11,7 +11,7 @@ const Shelf = ({section, books, category, changeShelf}) => {
                 <div className="bookshelf-books">
                   <ol className="books-grid">
                   {error ? booksCategory.map(book => (
-                  <Book key={book.id}  book={book} changeShelf={changeShelf}/>)): (
+                  <Book key={book.id}  book={book} changeShelf={changeShelf} currentShelf={book.shelf} isSearch={false}/>)): (
                     <h4>There are no books on this shelf</h4>
                   )}
                     </ol>
